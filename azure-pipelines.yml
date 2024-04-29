@@ -24,6 +24,11 @@ steps:
   displayName: 'Set up virtual environment'
 
 - script: |
+    pip install -r requirements.txt
+  displayName: 'Install requirements'
+
+- script: |
+    cd $(ProjectDir)
     python main.py
   displayName: 'Run main'
 

@@ -7,6 +7,6 @@ df = pd.DataFrame(data, columns=['Name', 'age', 'Role'])
 
 df.dropna(axis=0, inplace=True)
 
-print(df.head(3))
+print(df)
 
 
