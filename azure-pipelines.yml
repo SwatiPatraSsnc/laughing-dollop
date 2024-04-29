@@ -32,5 +32,13 @@ steps:
     python main.py
   displayName: 'Run main'
 
+- script: |
+    pip install cyclonedx-bom==3.11.7
+    echo "Generating SBOM"
+    cd ..
+    cyclonedx-py --environment --format "json" --output "sbom/sbom_$(ProjectDir)_py.json"
+  displayName: 'install cyclonedx-bom and generate SBOM'
+    
+
 
 
