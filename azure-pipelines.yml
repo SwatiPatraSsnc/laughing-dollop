@@ -1,0 +1,31 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - name: PythonVersion
+    value: "3.7"
+  - name: ProjectDir
+    value: "laughing-dollop"
+  - name: VenvName
+    value: "venv"
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: "$(PythonVersion)"
+    addToPath: true
+
+- script: |
+    python -m venv $(VenvName)
+    source $(VenvName)/bin/activate
+  displayName: 'Set up virtual environment'
+
+- script: |
+    python main.py
+  displayName: 'Run main'
+
+
+
